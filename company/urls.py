@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from cody.views import get_cody_title
+from cody.views import get_cody_title, get_employee_view
 from cody import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', get_cody_title, name='cody_list'),
+    path('api/def_employee/', get_employee_view, name='def_employee'),
     path('api/cody', views.CodyViewCreate.as_view(), name='cody'),
     path('api/employee', views.EmployeeViewCreate.as_view(), name='employee'),
 
